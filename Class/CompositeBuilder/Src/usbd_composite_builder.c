@@ -1393,7 +1393,7 @@ static void  USBD_CMPSIT_CUSTOMHIDDesc(USBD_HandleTypeDef *pdev, uint32_t pConf,
   pDesc->bCountryCode = 0x00U;
   pDesc->bNumDescriptors = 0x01U;
   pDesc->bDescriptorType = 0x22U;
-  pDesc->wItemLength = USBD_CUSTOM_HID_REPORT_DESC_SIZE;
+  pDesc->wItemLength = ((USBD_CUSTOM_HID_ItfTypeDef *)pdev->pUserData[pdev->classId])->wReportDescrLen;
   *Sze += (uint32_t)sizeof(USBD_DescTypeDef);
 
   /* Descriptor of Custom HID endpoints */
